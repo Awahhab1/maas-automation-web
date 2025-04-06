@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MaaS Test Suite" parallel="false">
+
+    <test name="Full Regression Test">
+        <classes>
+            <class name="testCases.RegistrationTest"/>
+            <class name="testCases.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
