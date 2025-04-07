@@ -1,5 +1,8 @@
 package testCases;
 
+import com.aventstack.extentreports.MediaEntityBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -17,26 +21,18 @@ import pages.RegistrationPage;
 import testBase.BaseTest;
 import utility.ConfigReader;
 import utility.DriverFactory;
+import utility.ScreenshotUtil;
 
 
 import java.time.Duration;
 
 public class RegistrationTest extends BaseTest {
 
-    public WebDriver driver;
+    //public WebDriver driver;
+    private static final Logger logger = LogManager.getLogger(RegistrationTest.class);
 
-    @BeforeMethod
 
-    public void setup(){
-
-        String browser = ConfigReader.get("browser");
-        driver = DriverFactory.initializeDriver(browser);
-
-        driver.get(ConfigReader.get("base.url"));
-        System.out.println("Launched " + browser + " and hit the URL");
-
-    }
-    @Test(priority = 1)
+    @Test
     public void account_registration(){
         test = extent.createTest("Account Registration ","Register to the application  ");
         test.info("Register with Valid Credentials");
@@ -59,8 +55,6 @@ public class RegistrationTest extends BaseTest {
         rp.clickCheckbox();
         rp.clickSubmit_button();
 
-
-
         String actualText = rp.getOverlayMessageText();
         Assert.assertTrue(actualText.contains("Account created successfully"), "Success message not found!");
 
@@ -77,7 +71,7 @@ public class RegistrationTest extends BaseTest {
 
     }
 
-    @Test(priority = 2)
+    @Test
     public void invalidEmailFormatTest() {
         test = extent.createTest("Account Registration with Invalid Email ", "Account Registration with Invalid Email to the application  ");
         test.info("Account Registration with Invalid Email to the application");
@@ -102,7 +96,7 @@ public class RegistrationTest extends BaseTest {
         test.pass("Account Registration with Invalid Email to the application and Error Validated");
     }
 
-    @Test(priority = 3)
+    @Test
     public void invalidPhoneNumberFormatTest() {
         test = extent.createTest("Account Registration with Invalid Phone ","Login to the application  ");
         test.info("Login with Valid Credentials and OTP");
@@ -127,7 +121,7 @@ public class RegistrationTest extends BaseTest {
         test.pass("Account Registration with invalid PhoneNumber to the application and Error Validated");
     }
 
-    @Test(priority = 4)
+    @Test
     public void emptyFieldsTest() {
         test = extent.createTest("Account Registration with Empty fields ","Account Register with empty Fields");
         test.info("Login with Valid Credentials and OTP");
@@ -165,12 +159,7 @@ public class RegistrationTest extends BaseTest {
     }
 
 
-    @AfterMethod
-    public void tearDown(){
 
-        driver.quit();
-
-    }
 
 
 

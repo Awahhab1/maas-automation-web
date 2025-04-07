@@ -65,8 +65,8 @@ public class LoginPage extends BasePage{
 
 
     public void Set_Email(String email){
-       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-      //  wait.until(ExpectedConditions.visibilityOf(Email));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        wait.until(ExpectedConditions.visibilityOf(Email));
         Email.sendKeys(email);
 
     }
@@ -77,8 +77,7 @@ public class LoginPage extends BasePage{
 
     public void Click_Login(){
 
-       // JavascriptExecutor js1 = (JavascriptExecutor) driver;
-       // js1.executeScript("window.scrollBy(0,500)");
+
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", Login);
@@ -96,19 +95,19 @@ public class LoginPage extends BasePage{
 
     public void set_otp(String otp){
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfAllElements(otpInputs));
         char[] digits = otp.toCharArray();
-        for (int i = 0; i < digits.length; i++){
+        /*for (int i = 0; i < digits.length; i++){
             System.out.println(i);
         }
 
-        System.out.println("Total OTP input fields found: " + otpInputs.size());
+
 
         for (WebElement input : otpInputs) {
             System.out.println("Input field - ID: " + input.getDomAttribute("id") +
                     ", Class: " + input.getDomAttribute("class"));
-        }
+        }*/
 
 
 
@@ -124,7 +123,7 @@ public class LoginPage extends BasePage{
     }
 
     public String getDisplayedEmailText() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(displayedEmailElement));
         return displayedEmailElement.getText();
     }
@@ -142,7 +141,7 @@ public class LoginPage extends BasePage{
     }
 
     public String getOverlayMessageText() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(overlayContainer));
         return overlayContainer.getText();
     }

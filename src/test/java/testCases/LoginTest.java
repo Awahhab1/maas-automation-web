@@ -1,47 +1,33 @@
 package testCases;
 
 import com.aventstack.extentreports.ExtentReports;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.logging.LogType;
+
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
-import pages.RegistrationPage;
+
 import testBase.BaseTest;
 import utility.ConfigReader;
-import utility.DriverFactory;
+
 import utility.otpAPI;
 
 import java.time.Duration;
-import java.util.Map;
+
+
+
 
 public class LoginTest extends BaseTest {
     //
 
-    public WebDriver driver;
+
     private static ExtentReports report;
 
-    @BeforeMethod
-    public void setup() {
-
-
-        String browser = ConfigReader.get("browser");
-        driver = DriverFactory.initializeDriver(browser);
-
-        driver.get(ConfigReader.get("base.url"));
-        System.out.println("Launched " + browser + " and hit the URL");
-    }
-
-
-    @Test(priority = 1)
+    @Test
     public void login_User(){
         test = extent.createTest("Login with Valid credentials ","Login to the application  ");
         test.info("Login with Valid Credentials and OTP");
@@ -51,7 +37,7 @@ public class LoginTest extends BaseTest {
         homePage.click_Login_link();
 
         LoginPage loginpage=new LoginPage(driver);
-        //lp.click_EN_button();
+
 
         loginpage.Set_Email(ConfigReader.get("user.email"));
 
@@ -88,7 +74,7 @@ public class LoginTest extends BaseTest {
 
 
 
-    @Test(priority = 2)
+    @Test
     public void login_InvalidEmail() {
         test = extent.createTest("Login with Invalid Email credentials ","Login to the application with Invalid Email ");
         test.info("Login with Valid Credentials and OTP");
@@ -108,7 +94,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(priority = 3)
+    @Test
 
     public void login_EmptyPassword() {
         test = extent.createTest("Login with Empty Password ","Login to the application with Empty password");
@@ -129,7 +115,7 @@ public class LoginTest extends BaseTest {
         test.pass("Error message for Empty password  displayed. and Test got passed");
     }
 
-    @Test(priority = 4)
+    @Test
     public void login_IncorrectOtp() {
         test = extent.createTest("Login with Incorrect OTP ","Login to the application with Incorrect OTP");
         test.info("Login with Empty password");
@@ -155,11 +141,6 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @AfterMethod
-    public void tearDown(){
 
-        driver.quit();
-
-    }
 }
 

@@ -30,19 +30,22 @@ public class HomePage extends BasePage{
     WebElement Login_button;
 
     public void click_Registration_link(){
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(Register_link));
         Register_link.click();
     }
 
     public void click_Login_link(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(Login_button));
 
         Login_button.click();
     }
 
     public void click_EN_button(){
 
-       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //wait.until(ExpectedConditions.visibilityOf(en_btn));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(en_btn));
         en_btn.click();
     }
 }

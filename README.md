@@ -59,42 +59,55 @@ If invalid credentials are entered, an error message is displayed.
 If the user tries to register with an already registered email or invalid data, an error message is displayed.
 
 ## 5 Project Structure 
-# mass-automation Project Structure
+
+
+### Mass Automation Project Structure
 
 ```
 **mass-automation/
-- .idea/
-- reports/
-- screenshots/
+- .idea/                          # IDE configuration files (IntelliJ)
+- logs/                          # Log files directory
+- reports/                       # Test execution reports
+- screenshots/                   # Screenshots from test runs
 - src/
   - main/
     - java/
-    - org.example/
-    - pages/
-      - BasePage.java
-      - HomePage.java
-      - LoginPage.java
-      - RegistrationPage.java
-    - resources/
+      - pages/                   # Page Object classes
+        - BasePage.java
+        - HomePage.java
+        - LoginPage.java
+        - RegistrationPage.java
   - test/
     - java/
-      - testBase/
+      - testBase/                # Base test classes
         - BaseTest.java
-      - testCases/
-        - LoginTest.java
-        - RegistrationTest.java
-      - utility/
-        - ConfigReader.java
-        - DriverFactory.java
-        - FileUtils.java
-        - qtpAPI.java
-    - resources/
+      - testCases/               # Test case implementations
+      - utility/                 # Utility/helper classes
+    - resources/                # Test resources
 - config/
-  - log4j2.xml
-- target/
-- test-output/
-  - ExtentReport.html**
+    -- config.properties
+    -- log4j2.xml                  # Logging configuration
+- target/                       # Build output directory
+- .gitignore                    # Specifies files to ignore in version control
+- pom.xml                       # Maven project configuration file
+- README.md                     # Project documentation
+- testing.xml                   # Test configuration file**
 ```
+
+### Key Components
+- **Page Objects**: Located in `src/main/java/pages/` for UI automation
+- **Test Structure**: Organized under `src/test/java/` with:
+    - Base tests (`testBase/`)
+    - Test cases (`testCases/`)
+    - Utilities (`utility/`)
+- **Configuration**:
+    - `log4j2.xml` for logging
+    - `testing.xml` for test configurations
+- **Build Management**:
+    - `pom.xml` for Maven dependencies
+   ```
+
+
 ## 6. Extensibility
 ### Adding New Tests:
 To add new tests, follow the steps below:

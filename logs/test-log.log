@@ -1,0 +1,18 @@
+2025-04-08 02:29:54 [main] INFO  utility.ConfigReader - Loaded config.properties successfully.
+2025-04-08 02:30:05 [main] INFO  testBase.BaseTest - Browser closed after test: account_registration
+2025-04-08 02:30:12 [main] INFO  testBase.BaseTest - Browser closed after test: emptyFieldsTest
+2025-04-08 02:30:20 [main] INFO  testBase.BaseTest - Browser closed after test: invalidEmailFormatTest
+2025-04-08 02:30:29 [main] INFO  testBase.BaseTest - Browser closed after test: invalidPhoneNumberFormatTest
+2025-04-08 02:30:34 [main] INFO  testBase.BaseTest - Browser closed after test: login_EmptyPassword
+2025-04-08 02:30:41 [main] INFO  testBase.BaseTest - Browser closed after test: login_IncorrectOtp
+2025-04-08 02:30:46 [main] INFO  testBase.BaseTest - Browser closed after test: login_InvalidEmail
+2025-04-08 02:30:56 [main] INFO  testBase.BaseTest - Browser closed after test: login_User
+2025-04-08 02:55:17 [main] INFO  utility.ConfigReader - Loaded config.properties successfully.
+2025-04-08 02:55:26 [main] INFO  testBase.BaseTest - Browser closed after test: account_registration
+2025-04-08 02:55:34 [main] INFO  testBase.BaseTest - Browser closed after test: emptyFieldsTest
+2025-04-08 02:55:42 [main] INFO  testBase.BaseTest - Browser closed after test: invalidEmailFormatTest
+2025-04-08 02:55:50 [main] INFO  testBase.BaseTest - Browser closed after test: invalidPhoneNumberFormatTest
+2025-04-08 02:55:54 [main] INFO  testBase.BaseTest - Browser closed after test: login_EmptyPassword
+2025-04-08 02:56:01 [main] INFO  testBase.BaseTest - Browser closed after test: login_IncorrectOtp
+2025-04-08 02:56:05 [main] INFO  testBase.BaseTest - Browser closed after test: login_InvalidEmail
+2025-04-08 02:56:50 [main] INFO  testBase.BaseTest - Browser closed after test: login_User
