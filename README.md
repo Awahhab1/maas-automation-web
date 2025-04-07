@@ -106,8 +106,6 @@ If the user tries to register with an already registered email or invalid data, 
 - **Build Management**:
     - `pom.xml` for Maven dependencies
    ```
-
-
 ## 6. Extensibility
 ### Adding New Tests:
 To add new tests, follow the steps below:
